@@ -4,4 +4,4 @@ This repo contains projects meant to visualize the text layout behaviors of diff
 
 ## Platforms
 - UWP XAML
-- Web
+- [Web](https://aschultz.github.io/test-textlayout/)
