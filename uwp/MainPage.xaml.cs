@@ -35,21 +35,21 @@ namespace TextLayout
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
 
             ZoomBox.ViewChanged += ZoomBox_ViewChanged;
-            ZoomFactorLabel.LostFocus += ZoomFactorLabel_LostFocus; ;
+            ZoomFactorText.LostFocus += ZoomFactorLabel_LostFocus; ;
         }
 
         private void ZoomBox_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
         {
             if (!e.IsIntermediate)
             {
-                ZoomFactorLabel.Text = ZoomBox.ZoomFactor.ToString();
+                ZoomFactorText.Text = ZoomBox.ZoomFactor.ToString();
             }
         }
 
         private void ZoomFactorLabel_LostFocus(object sender, RoutedEventArgs e)
         {
             float zoom;
-            if (float.TryParse(ZoomFactorLabel.Text, out zoom) && ZoomBox.ZoomFactor != zoom && zoom > 0)
+            if (float.TryParse(ZoomFactorText.Text, out zoom) && ZoomBox.ZoomFactor != zoom && zoom > 0)
             {
                 ZoomBox.ChangeView(null, null, zoom);
             }
@@ -82,6 +82,19 @@ namespace TextLayout
 
         public GridLength RowHeight { get { return new GridLength(m_TestFontSize * 3 + 2); } }
         public Point StripesPoint {  get { return new Point(0, m_TestFontSize / 2); } }
+
+        public List<string> TextLineBoundsValues => Enum.GetNames(typeof(TextLineBounds)).ToList();
+        public string TextLineBoundsSelection
+        {
+            get { return Enum.GetName(typeof(TextLineBounds), TextLineBoundsSetting); }
+            set { TextLineBoundsSetting = (TextLineBounds)Enum.Parse(typeof(TextLineBounds), value); RaisePropertyChanged(); }
+        }
+        public TextLineBounds TextLineBoundsSetting
+        {
+            get { return m_TextLineBoundsSetting; }
+            set { m_TextLineBoundsSetting = value; RaisePropertyChanged(); }
+        }
+        private TextLineBounds m_TextLineBoundsSetting = TextLineBounds.Tight;
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void RaisePropertyChanged([CallerMemberNameAttribute] string propertyName = "")

@@ -36,6 +36,7 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
@@ -61,15 +62,19 @@
 
             <TextBlock Grid.Row="4" Grid.Column="0" Text="TestText" />
             <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Height="100" Text="{Binding TestText, Mode=TwoWay}" AcceptsReturn="True"  ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"  />
+            
+            <TextBlock Grid.Row="5" Grid.Column="0" Text="TextLineBounds" />
+            <ComboBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" ItemsSource="{Binding TextLineBoundsValues}" SelectedItem="{Binding TextLineBoundsSelection, Mode=TwoWay}" />
 
-            <TextBlock Grid.Row="5" Grid.Column="0" Text="ZoomFactor" />
-            <TextBox Grid.Row="5" Grid.Column="1" x:Name="ZoomFactorLabel" Text="1" />
+            <TextBlock Grid.Row="6" Grid.Column="0" Text="ZoomFactor" />
+            <TextBox Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" x:Name="ZoomFactorText" Text="1" />
         </Grid>
 
         <Grid Grid.Row="0" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
             <ScrollViewer x:Name="ZoomBox" ZoomMode="Enabled" VerticalScrollBarVisibility="Auto" VerticalScrollMode="Auto" HorizontalScrollBarVisibility="Visible" HorizontalScrollMode="Enabled">
                 <Grid Margin="20" RowSpacing="10" ColumnSpacing="10" VerticalAlignment="Top" HorizontalAlignment="Left">
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="{Binding RowHeight}" />
                         <RowDefinition Height="{Binding RowHeight}" />
@@ -97,107 +102,136 @@
                     <Border Grid.Row="0" Grid.Column="7" Grid.ColumnSpan="3">
                         <TextBlock FontFamily="Segoe UI" FontSize="12" Text="BaselineToBaseline" HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Border>
-                    <Border Grid.Row="1" Grid.Column="0" BorderThickness="1" >
+                    
+                    <Border Grid.Row="1" Grid.Column="1">
+                        <TextBlock FontFamily="Segoe UI" FontSize="12" Text="{Binding SmLineHeight}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <Border Grid.Row="1" Grid.Column="2">
+                        <TextBlock FontFamily="Segoe UI" FontSize="12" Text="{Binding MdLineHeight}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <Border Grid.Row="1" Grid.Column="3">
+                        <TextBlock FontFamily="Segoe UI" FontSize="12" Text="{Binding LgLineHeight}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <Border Grid.Row="1" Grid.Column="4">
+                        <TextBlock FontFamily="Segoe UI" FontSize="12" Text="{Binding SmLineHeight}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <Border Grid.Row="1" Grid.Column="5">
+                        <TextBlock FontFamily="Segoe UI" FontSize="12" Text="{Binding MdLineHeight}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <Border Grid.Row="1" Grid.Column="6">
+                        <TextBlock FontFamily="Segoe UI" FontSize="12" Text="{Binding LgLineHeight}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <Border Grid.Row="1" Grid.Column="7">
+                        <TextBlock FontFamily="Segoe UI" FontSize="12" Text="{Binding SmLineHeight}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <Border Grid.Row="1" Grid.Column="8">
+                        <TextBlock FontFamily="Segoe UI" FontSize="12" Text="{Binding MdLineHeight}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <Border Grid.Row="1" Grid.Column="9">
+                        <TextBlock FontFamily="Segoe UI" FontSize="12" Text="{Binding LgLineHeight}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+
+                    <Border Grid.Row="2" Grid.Column="0" BorderThickness="1" >
                         <TextBlock FontFamily="Segoe UI" FontSize="12" Text="VAlign=Top" VerticalAlignment="Center" />
                     </Border>
-                    <Border Grid.Row="2" Grid.Column="0" BorderThickness="1" >
+                    <Border Grid.Row="3" Grid.Column="0" BorderThickness="1" >
                         <TextBlock FontFamily="Segoe UI" FontSize="12" Text="VAlign=Center" VerticalAlignment="Center" />
                     </Border>
-                    <Border Grid.Row="3" Grid.Column="0" BorderThickness="1" >
-                        <TextBlock FontFamily="Segoe UI" FontSize="12" Text="TextLineBounds='Tight'" VerticalAlignment="Center" />
+                    <Border Grid.Row="4" Grid.Column="0" BorderThickness="1" >
+                        <TextBlock FontFamily="Segoe UI" FontSize="12" Text="TextLineBounds='???'" VerticalAlignment="Center" />
                     </Border>
 
                     <!-- Row 1 -->
-                    <Border Grid.Row="1" Grid.Column="1" BorderThickness="1" BorderBrush="Red" Background="{StaticResource Stripes}" >
+                    <Border Grid.Row="2" Grid.Column="1" BorderThickness="1" BorderBrush="Red" Background="{StaticResource Stripes}" >
                         <TextBlock FontFamily="Segoe UI" FontSize="{Binding TestFontSize}" LineHeight="{Binding SmLineHeight}" Text="{Binding TestText}" VerticalAlignment="Top" LineStackingStrategy="MaxHeight" />
                     </Border>
-                    <Border Grid.Row="1" Grid.Column="2" BorderThickness="1" BorderBrush="Red" Background="{StaticResource Stripes}">
+                    <Border Grid.Row="2" Grid.Column="2" BorderThickness="1" BorderBrush="Red" Background="{StaticResource Stripes}">
                         <TextBlock FontFamily="Segoe UI" FontSize="{Binding TestFontSize}" LineHeight="{Binding MdLineHeight}" Text="{Binding TestText}" VerticalAlignment="Top" LineStackingStrategy="MaxHeight" />
                     </Border>
-                    <Border Grid.Row="1" Grid.Column="3" BorderThickness="1" BorderBrush="Red" Background="{StaticResource Stripes}">
+                    <Border Grid.Row="2" Grid.Column="3" BorderThickness="1" BorderBrush="Red" Background="{StaticResource Stripes}">
                         <TextBlock FontFamily="Segoe UI" FontSize="{Binding TestFontSize}" LineHeight="{Binding LgLineHeight}" Text="{Binding TestText}" VerticalAlignment="Top" LineStackingStrategy="MaxHeight" />
                     </Border>
 
-                    <Border Grid.Row="1" Grid.Column="4" BorderThickness="1" BorderBrush="Green" Background="{StaticResource Stripes}">
+                    <Border Grid.Row="2" Grid.Column="4" BorderThickness="1" BorderBrush="Green" Background="{StaticResource Stripes}">
                         <TextBlock FontFamily="Segoe UI"  FontSize="{Binding TestFontSize}" LineHeight="{Binding SmLineHeight}" Text="{Binding TestText}" VerticalAlignment="Top" LineStackingStrategy="BlockLineHeight" />
                     </Border>
-                    <Border Grid.Row="1" Grid.Column="5" BorderThickness="1" BorderBrush="Green" Background="{StaticResource Stripes}">
+                    <Border Grid.Row="2" Grid.Column="5" BorderThickness="1" BorderBrush="Green" Background="{StaticResource Stripes}">
                         <TextBlock FontFamily="Segoe UI" FontSize="{Binding TestFontSize}" LineHeight="{Binding MdLineHeight}" Text="{Binding TestText}" VerticalAlignment="Top" LineStackingStrategy="BlockLineHeight" />
                     </Border>
-                    <Border Grid.Row="1" Grid.Column="6" BorderThickness="1" BorderBrush="Green" Background="{StaticResource Stripes}">
+                    <Border Grid.Row="2" Grid.Column="6" BorderThickness="1" BorderBrush="Green" Background="{StaticResource Stripes}">
                         <TextBlock FontFamily="Segoe UI" FontSize="{Binding TestFontSize}" LineHeight="{Binding LgLineHeight}" Text="{Binding TestText}" VerticalAlignment="Top" LineStackingStrategy="BlockLineHeight" />
                     </Border>
 
-                    <Border Grid.Row="1" Grid.Column="7" BorderThickness="1" BorderBrush="Blue" Background="{StaticResource Stripes}">
+                    <Border Grid.Row="2" Grid.Column="7" BorderThickness="1" BorderBrush="Blue" Background="{StaticResource Stripes}">
                         <TextBlock FontFamily="Segoe UI"  FontSize="{Binding TestFontSize}" LineHeight="{Binding SmLineHeight}" Text="{Binding TestText}" VerticalAlignment="Top" LineStackingStrategy="BaselineToBaseline" />
                     </Border>
-                    <Border Grid.Row="1" Grid.Column="8" BorderThickness="1" BorderBrush="Blue" Background="{StaticResource Stripes}">
+                    <Border Grid.Row="2" Grid.Column="8" BorderThickness="1" BorderBrush="Blue" Background="{StaticResource Stripes}">
                         <TextBlock FontFamily="Segoe UI" FontSize="{Binding TestFontSize}" LineHeight="{Binding MdLineHeight}" Text="{Binding TestText}" VerticalAlignment="Top" LineStackingStrategy="BaselineToBaseline" />
                     </Border>
-                    <Border Grid.Row="1" Grid.Column="9" BorderThickness="1" BorderBrush="Blue" Background="{StaticResource Stripes}">
+                    <Border Grid.Row="2" Grid.Column="9" BorderThickness="1" BorderBrush="Blue" Background="{StaticResource Stripes}">
                         <TextBlock FontFamily="Segoe UI" FontSize="{Binding TestFontSize}" LineHeight="{Binding LgLineHeight}" Text="{Binding TestText}" VerticalAlignment="Top" LineStackingStrategy="BaselineToBaseline" />
                     </Border>
 
                     <!-- Row 2 -->
-                    <Border Grid.Row="2" Grid.Column="1" BorderThickness="1" BorderBrush="Red" Background="{StaticResource Stripes}">
+                    <Border Grid.Row="3" Grid.Column="1" BorderThickness="1" BorderBrush="Red" Background="{StaticResource Stripes}">
                         <TextBlock FontFamily="Segoe UI"  FontSize="{Binding TestFontSize}" LineHeight="{Binding SmLineHeight}" Text="{Binding TestText}" VerticalAlignment="Center" LineStackingStrategy="MaxHeight" />
                     </Border>
-                    <Border Grid.Row="2" Grid.Column="2" BorderThickness="1" BorderBrush="Red" Background="{StaticResource Stripes}">
+                    <Border Grid.Row="3" Grid.Column="2" BorderThickness="1" BorderBrush="Red" Background="{StaticResource Stripes}">
                         <TextBlock FontFamily="Segoe UI" FontSize="{Binding TestFontSize}" LineHeight="{Binding MdLineHeight}" Text="{Binding TestText}" VerticalAlignment="Center" LineStackingStrategy="MaxHeight" />
                     </Border>
-                    <Border Grid.Row="2" Grid.Column="3" BorderThickness="1" BorderBrush="Red" Background="{StaticResource Stripes}">
+                    <Border Grid.Row="3" Grid.Column="3" BorderThickness="1" BorderBrush="Red" Background="{StaticResource Stripes}">
                         <TextBlock FontFamily="Segoe UI" FontSize="{Binding TestFontSize}" LineHeight="{Binding LgLineHeight}" Text="{Binding TestText}" VerticalAlignment="Center" LineStackingStrategy="MaxHeight" />
                     </Border>
 
-                    <Border Grid.Row="2" Grid.Column="4" BorderThickness="1" BorderBrush="Green" Background="{StaticResource Stripes}">
+                    <Border Grid.Row="3" Grid.Column="4" BorderThickness="1" BorderBrush="Green" Background="{StaticResource Stripes}">
                         <TextBlock FontFamily="Segoe UI"  FontSize="{Binding TestFontSize}" LineHeight="{Binding SmLineHeight}" Text="{Binding TestText}" VerticalAlignment="Center" LineStackingStrategy="BlockLineHeight" />
                     </Border>
-                    <Border Grid.Row="2" Grid.Column="5" BorderThickness="1" BorderBrush="Green" Background="{StaticResource Stripes}">
+                    <Border Grid.Row="3" Grid.Column="5" BorderThickness="1" BorderBrush="Green" Background="{StaticResource Stripes}">
                         <TextBlock FontFamily="Segoe UI" FontSize="{Binding TestFontSize}" LineHeight="{Binding MdLineHeight}" Text="{Binding TestText}" VerticalAlignment="Center" LineStackingStrategy="BlockLineHeight" />
                     </Border>
-                    <Border Grid.Row="2" Grid.Column="6" BorderThickness="1" BorderBrush="Green" Background="{StaticResource Stripes}">
+                    <Border Grid.Row="3" Grid.Column="6" BorderThickness="1" BorderBrush="Green" Background="{StaticResource Stripes}">
                         <TextBlock FontFamily="Segoe UI" FontSize="{Binding TestFontSize}" LineHeight="{Binding LgLineHeight}" Text="{Binding TestText}" VerticalAlignment="Center" LineStackingStrategy="BlockLineHeight" />
                     </Border>
 
-                    <Border Grid.Row="2" Grid.Column="7" BorderThickness="1" BorderBrush="Blue" Background="{StaticResource Stripes}">
+                    <Border Grid.Row="3" Grid.Column="7" BorderThickness="1" BorderBrush="Blue" Background="{StaticResource Stripes}">
                         <TextBlock FontFamily="Segoe UI"  FontSize="{Binding TestFontSize}" LineHeight="{Binding SmLineHeight}" Text="{Binding TestText}" VerticalAlignment="Center" LineStackingStrategy="BaselineToBaseline" />
                     </Border>
-                    <Border Grid.Row="2" Grid.Column="8" BorderThickness="1" BorderBrush="Blue" Background="{StaticResource Stripes}">
+                    <Border Grid.Row="3" Grid.Column="8" BorderThickness="1" BorderBrush="Blue" Background="{StaticResource Stripes}">
                         <TextBlock FontFamily="Segoe UI" FontSize="{Binding TestFontSize}" LineHeight="{Binding MdLineHeight}" Text="{Binding TestText}" VerticalAlignment="Center" LineStackingStrategy="BaselineToBaseline" />
                     </Border>
-                    <Border Grid.Row="2" Grid.Column="9" BorderThickness="1" BorderBrush="Blue" Background="{StaticResource Stripes}">
+                    <Border Grid.Row="3" Grid.Column="9" BorderThickness="1" BorderBrush="Blue" Background="{StaticResource Stripes}">
                         <TextBlock FontFamily="Segoe UI" FontSize="{Binding TestFontSize}" LineHeight="{Binding LgLineHeight}" Text="{Binding TestText}" VerticalAlignment="Center" LineStackingStrategy="BaselineToBaseline" />
                     </Border>
 
                     <!-- Row 3 -->
-                    <Border Grid.Row="3" Grid.Column="1" BorderThickness="1" BorderBrush="Red" Background="{StaticResource Stripes}">
-                        <TextBlock FontFamily="Segoe UI"  FontSize="{Binding TestFontSize}" LineHeight="{Binding SmLineHeight}" Text="{Binding TestText}" VerticalAlignment="Top" LineStackingStrategy="MaxHeight" TextLineBounds="Tight" />
+                    <Border Grid.Row="4" Grid.Column="1" BorderThickness="1" BorderBrush="Red" Background="{StaticResource Stripes}">
+                        <TextBlock FontFamily="Segoe UI"  FontSize="{Binding TestFontSize}" LineHeight="{Binding SmLineHeight}" Text="{Binding TestText}" VerticalAlignment="Top" LineStackingStrategy="MaxHeight" TextLineBounds="{Binding TextLineBoundsSetting}" />
                     </Border>
-                    <Border Grid.Row="3" Grid.Column="2" BorderThickness="1" BorderBrush="Red" Background="{StaticResource Stripes}">
-                        <TextBlock FontFamily="Segoe UI" FontSize="{Binding TestFontSize}" LineHeight="{Binding MdLineHeight}" Text="{Binding TestText}" VerticalAlignment="Top" LineStackingStrategy="MaxHeight" TextLineBounds="Tight" />
+                    <Border Grid.Row="4" Grid.Column="2" BorderThickness="1" BorderBrush="Red" Background="{StaticResource Stripes}">
+                        <TextBlock FontFamily="Segoe UI" FontSize="{Binding TestFontSize}" LineHeight="{Binding MdLineHeight}" Text="{Binding TestText}" VerticalAlignment="Top" LineStackingStrategy="MaxHeight" TextLineBounds="{Binding TextLineBoundsSetting}" />
                     </Border>
-                    <Border Grid.Row="3" Grid.Column="3" BorderThickness="1" BorderBrush="Red" Background="{StaticResource Stripes}">
-                        <TextBlock FontFamily="Segoe UI" FontSize="{Binding TestFontSize}" LineHeight="{Binding LgLineHeight}" Text="{Binding TestText}" VerticalAlignment="Top" LineStackingStrategy="MaxHeight" TextLineBounds="Tight" />
-                    </Border>
-
-                    <Border Grid.Row="3" Grid.Column="4" BorderThickness="1" BorderBrush="Green" Background="{StaticResource Stripes}">
-                        <TextBlock FontFamily="Segoe UI"  FontSize="{Binding TestFontSize}" LineHeight="{Binding SmLineHeight}" Text="{Binding TestText}" VerticalAlignment="Top" LineStackingStrategy="BlockLineHeight" TextLineBounds="Tight" />
-                    </Border>
-                    <Border Grid.Row="3" Grid.Column="5" BorderThickness="1" BorderBrush="Green" Background="{StaticResource Stripes}">
-                        <TextBlock FontFamily="Segoe UI" FontSize="{Binding TestFontSize}" LineHeight="{Binding MdLineHeight}" Text="{Binding TestText}" VerticalAlignment="Top" LineStackingStrategy="BlockLineHeight" TextLineBounds="Tight" />
-                    </Border>
-                    <Border Grid.Row="3" Grid.Column="6" BorderThickness="1" BorderBrush="Green" Background="{StaticResource Stripes}">
-                        <TextBlock FontFamily="Segoe UI" FontSize="{Binding TestFontSize}" LineHeight="{Binding LgLineHeight}" Text="{Binding TestText}" VerticalAlignment="Top" LineStackingStrategy="BlockLineHeight" TextLineBounds="Tight" />
+                    <Border Grid.Row="4" Grid.Column="3" BorderThickness="1" BorderBrush="Red" Background="{StaticResource Stripes}">
+                        <TextBlock FontFamily="Segoe UI" FontSize="{Binding TestFontSize}" LineHeight="{Binding LgLineHeight}" Text="{Binding TestText}" VerticalAlignment="Top" LineStackingStrategy="MaxHeight" TextLineBounds="{Binding TextLineBoundsSetting}" />
                     </Border>
 
-                    <Border Grid.Row="3" Grid.Column="7" BorderThickness="1" BorderBrush="Blue" Background="{StaticResource Stripes}">
-                        <TextBlock FontFamily="Segoe UI"  FontSize="{Binding TestFontSize}" LineHeight="{Binding SmLineHeight}" Text="{Binding TestText}" VerticalAlignment="Top" LineStackingStrategy="BaselineToBaseline" TextLineBounds="Tight" />
+                    <Border Grid.Row="4" Grid.Column="4" BorderThickness="1" BorderBrush="Green" Background="{StaticResource Stripes}">
+                        <TextBlock FontFamily="Segoe UI"  FontSize="{Binding TestFontSize}" LineHeight="{Binding SmLineHeight}" Text="{Binding TestText}" VerticalAlignment="Top" LineStackingStrategy="BlockLineHeight" TextLineBounds="{Binding TextLineBoundsSetting}" />
                     </Border>
-                    <Border Grid.Row="3" Grid.Column="8" BorderThickness="1" BorderBrush="Blue" Background="{StaticResource Stripes}">
-                        <TextBlock FontFamily="Segoe UI" FontSize="{Binding TestFontSize}" LineHeight="{Binding MdLineHeight}" Text="{Binding TestText}" VerticalAlignment="Top" LineStackingStrategy="BaselineToBaseline" TextLineBounds="Tight" />
+                    <Border Grid.Row="4" Grid.Column="5" BorderThickness="1" BorderBrush="Green" Background="{StaticResource Stripes}">
+                        <TextBlock FontFamily="Segoe UI" FontSize="{Binding TestFontSize}" LineHeight="{Binding MdLineHeight}" Text="{Binding TestText}" VerticalAlignment="Top" LineStackingStrategy="BlockLineHeight" TextLineBounds="{Binding TextLineBoundsSetting}" />
                     </Border>
-                    <Border Grid.Row="3" Grid.Column="9" BorderThickness="1" BorderBrush="Blue" Background="{StaticResource Stripes}">
-                        <TextBlock FontFamily="Segoe UI" FontSize="{Binding TestFontSize}" LineHeight="{Binding LgLineHeight}" Text="{Binding TestText}" VerticalAlignment="Top" LineStackingStrategy="BaselineToBaseline" TextLineBounds="Tight" />
+                    <Border Grid.Row="4" Grid.Column="6" BorderThickness="1" BorderBrush="Green" Background="{StaticResource Stripes}">
+                        <TextBlock FontFamily="Segoe UI" FontSize="{Binding TestFontSize}" LineHeight="{Binding LgLineHeight}" Text="{Binding TestText}" VerticalAlignment="Top" LineStackingStrategy="BlockLineHeight" TextLineBounds="{Binding TextLineBoundsSetting}" />
+                    </Border>
+
+                    <Border Grid.Row="4" Grid.Column="7" BorderThickness="1" BorderBrush="Blue" Background="{StaticResource Stripes}">
+                        <TextBlock FontFamily="Segoe UI"  FontSize="{Binding TestFontSize}" LineHeight="{Binding SmLineHeight}" Text="{Binding TestText}" VerticalAlignment="Top" LineStackingStrategy="BaselineToBaseline" TextLineBounds="{Binding TextLineBoundsSetting}" />
+                    </Border>
+                    <Border Grid.Row="4" Grid.Column="8" BorderThickness="1" BorderBrush="Blue" Background="{StaticResource Stripes}">
+                        <TextBlock FontFamily="Segoe UI" FontSize="{Binding TestFontSize}" LineHeight="{Binding MdLineHeight}" Text="{Binding TestText}" VerticalAlignment="Top" LineStackingStrategy="BaselineToBaseline" TextLineBounds="{Binding TextLineBoundsSetting}" />
+                    </Border>
+                    <Border Grid.Row="4" Grid.Column="9" BorderThickness="1" BorderBrush="Blue" Background="{StaticResource Stripes}">
+                        <TextBlock FontFamily="Segoe UI" FontSize="{Binding TestFontSize}" LineHeight="{Binding LgLineHeight}" Text="{Binding TestText}" VerticalAlignment="Top" LineStackingStrategy="BaselineToBaseline" TextLineBounds="{Binding TextLineBoundsSetting}" />
                     </Border>
                 </Grid>
             </ScrollViewer>
